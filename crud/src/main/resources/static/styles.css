@@ -12,8 +12,14 @@
     border-radius: 5px; 
     display: inline-block;
     margin: 5px;
+    font-size: 100%;
 }
   
+h1 {
+    font-size: 100%;
+    text-align: center;
+
+}
 .primary {
     background-image: linear-gradient(to right, #a0248c, #4ab2e2);
 } 
@@ -45,5 +51,50 @@
 
 }
 @media (max-width: 990px) {
+    .container-buttons {
+        width: 80%;
+    }
     
+    .btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-buttons {
+        width: 90%;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-buttons {
+        width: 100%;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
 }

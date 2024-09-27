@@ -39,9 +39,9 @@ public class CategoriaController {
         return ResponseEntity.notFound().build();
     }
     
-    @PostMapping
-    public ResponseEntity<?> create(@RequestBody Categoria Categoria) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.save(Categoria));
+    @PostMapping()
+    public ResponseEntity<?> create(@RequestBody Categoria categoria) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.save(categoria));
     }
 
     @PutMapping("/{id}")

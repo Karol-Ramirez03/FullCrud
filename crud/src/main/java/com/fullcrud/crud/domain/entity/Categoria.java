@@ -2,6 +2,8 @@ package com.fullcrud.crud.domain.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,14 +26,16 @@ public class Categoria {
     @Column
     private String estado;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
+
+    
+
     public Long getId() {
         return id;
     }
 
-    @OneToMany(mappedBy = "categoria")
-    private List<Producto> productos;
-
-    //@jsonignore
     public void setId(Long id) {
         this.id = id;
     }
@@ -42,6 +46,22 @@ public class Categoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
     
