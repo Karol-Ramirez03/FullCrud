@@ -85,6 +85,12 @@ const formActualizarCategoria = () => {
     `;
 };
 
+const formAgregarCliente = () =>{
+    return /* html */`
+    
+    `
+
+}
 const limpiarContenedor = () => {
     contendorPrincipal.innerHTML = "";
 };
@@ -246,6 +252,21 @@ const agregarEventos = () => {
     
 };
 
+const crudClientes = () => {
+    const botonAgregar = document.querySelector(".agregar");
+    const botonEliminar = document.querySelector(".eliminar");
+    const botonListar = document.querySelector(".listar");
+    const botonActualizar = document.querySelector(".actualizar");
+    const botonListarId = document.querySelector(".listarid");
+
+    botonAgregar.addEventListener("click", ()  => {
+
+    })
+
+
+
+
+}
 
 botonCategorias.addEventListener("click", () => {
     limpiarContenedor();
@@ -256,5 +277,6 @@ botonCategorias.addEventListener("click", () => {
 
 botonClientes.addEventListener("click", () => {
     limpiarContenedor();
-    contendorPrincipal.innerHTML = "<h1>Gestión de Clientes</h1>";
+    contendorPrincipal.insertAdjacentHTML("beforeend", opciones());
+
 });
