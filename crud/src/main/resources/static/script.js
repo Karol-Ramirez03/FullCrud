@@ -64,6 +64,27 @@ const formListarCategorias = () => {
     `;
 }
 
+
+const formActualizarCategoria = () => {
+    return /* html */ `
+        <form class="form-actualizar-categoria">
+            <div class="idform">
+                <label for="formid" class="form-label">ID de la categoría a actualizar</label>
+                <input type="text" class="form-control" name="formid" id="formid" required>
+            </div>
+            <div class="nameform">
+                <label for="desc" class="form-label">Nueva descripción de la categoría</label>
+                <input type="text" class="form-control" name="desc" id="desc" required>
+            </div>
+            <div class="estadoform">
+                <label for="estado" class="form-label">Nuevo estado de la categoría</label>
+                <input type="text" class="form-control" name="estado" id="estado" required>
+            </div>
+            <button class="btn primary botonActualizarConfirm">Actualizar</button>
+        </form>
+    `;
+};
+
 const limpiarContenedor = () => {
     contendorPrincipal.innerHTML = "";
 };
@@ -72,6 +93,8 @@ const agregarEventos = () => {
     const botonAgregar = document.querySelector(".agregar");
     const botonEliminar = document.querySelector(".eliminar");
     const botonListar = document.querySelector(".listar");
+    const botonActualizar = document.querySelector(".actualizar");
+    const botonListarId = document.querySelector(".listarid");
 
     
     botonAgregar.addEventListener("click", () => {
@@ -180,6 +203,47 @@ const agregarEventos = () => {
             console.error('Error:', error);
         }
     });
+
+
+    botonActualizar.addEventListener("click", () => {
+        limpiarContenedor();
+        contendorPrincipal.insertAdjacentHTML("beforeend", formActualizarCategoria());
+
+        const botonActualizarConfirm = document.querySelector(".botonActualizarConfirm");
+        const formActualizar = document.querySelector(".form-actualizar-categoria");
+
+        botonActualizarConfirm.addEventListener("click", async (e) => {
+            e.preventDefault();
+            const formulario = new FormData(formActualizar);
+            const idCategoria = formulario.get("formid");
+            const categoriaActualizada = {
+                nombre: formulario.get("desc"),
+                estado: formulario.get("estado")
+            };
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/categoria/${idCategoria}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(categoriaActualizada)
+                });
+
+                if (response.ok) {
+                    console.log('Categoría actualizada exitosamente');
+                    formActualizar.reset(); 
+                } else {
+                    console.error('Error al actualizar categoría:', await response.text());
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+
+
+    
 };
 
 
