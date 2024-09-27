@@ -35,15 +35,15 @@ public class ClienteImplementacion implements ClienteServiceI{
     }
 
     @Override
-    public Optional<Cliente> update(Integer id, Cliente Cliente) {
+    public Optional<Cliente> update(Integer id, Cliente cliente) {
         Optional<Cliente> clienteId = clienteRepositoryI.findById(id);
         if (clienteId.isPresent()) {
             Cliente clienteCopy = clienteId.orElseThrow();
-            clienteCopy.setNombre(clienteCopy.getNombre());
-            clienteCopy.setApellidos(clienteCopy.getApellidos());
-            clienteCopy.setCelular(clienteCopy.getCelular());
-            clienteCopy.setDireccion(clienteCopy.getDireccion());
-            clienteCopy.setCorreo(clienteCopy.getCorreo());
+            clienteCopy.setNombre(cliente.getNombre());
+            clienteCopy.setApellidos(cliente.getApellidos());
+            clienteCopy.setCelular(cliente.getCelular());
+            clienteCopy.setDireccion(cliente.getDireccion());
+            clienteCopy.setCorreo(cliente.getCorreo());
 
             return Optional.of(clienteRepositoryI.save(clienteCopy));
             
