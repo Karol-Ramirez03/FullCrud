@@ -23,12 +23,13 @@ public class CategoriaImplementacion implements CategoriaServiceI {
        return ((List<Categoria>) categoriaRepositoryI.findAll());
     }
 
+    @Transactional(readOnly = true)
     @Override
     public Optional<Categoria> findById(Long id) {
         return categoriaRepositoryI.findById(id);
     }
 
-    @Transactional(readOnly = true)
+    // @Transactional(readOnly = true)
     @Override
     public Categoria save(Categoria categoria) {
         return categoriaRepositoryI.save(categoria);

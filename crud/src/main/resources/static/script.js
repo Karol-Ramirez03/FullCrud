@@ -84,9 +84,10 @@ const agregarEventos = () => {
         botonconfirGuardar.addEventListener("click", async (e) => {
             e.preventDefault();
 
+            const formulario = new FormData(form);
             const nuevaCategoria = {
-                nombre: "n3",
-                estado: "e8"
+                nombre: formulario.get("desc"),
+                estado: formulario.get("estado")
             };
 
             try {
