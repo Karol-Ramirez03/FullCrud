@@ -1,6 +1,7 @@
 package com.fullcrud.crud.domain.entity;
 
-import java.security.Timestamp;
+
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,8 +22,14 @@ public class Compra {
 
     @Column
     private Timestamp fecha;
+    
+    @Column
     private String medio_pago;
+    
+    @Column
     private String comentario;
+    
+    @Column
     private String estado;
 
     @ManyToOne

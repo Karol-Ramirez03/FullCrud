@@ -43,15 +43,53 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(ProductoServiceI.save(producto));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> Update(@RequestBody Producto producto,@PathVariable Long id){
-        Optional<Producto> ProductoOpt = ProductoServiceI.delete(id);
-        if (ProductoOpt.isPresent()) {
-            return ResponseEntity.ok(ProductoOpt.orElseThrow());  
-        }
-        return ResponseEntity.notFound().build();
+    // @PutMapping("/{id}")
+    // public ResponseEntity<?> Update(@RequestBody Producto producto,@PathVariable Long id){
+    //     Optional<Producto> ProductoOpt = ProductoServiceI.delete(id);
+    //     if (ProductoOpt.isPresent()) {
+    //         return ResponseEntity.ok(ProductoOpt.orElseThrow());  
+    //     }
+    //     return ResponseEntity.notFound().build();
 
+    // }
+
+    @PutMapping("/{id}")
+    public Optional<Producto> update(@PathVariable Long id, @RequestBody Producto producto) {
+        Optional<Producto> productoOptional = ProductoServiceI.findById(id);
+
+        if (productoOptional.isPresent()) {
+            Producto productoToUpdate = productoOptional.get();
+            System.out.println(producto.getNombre());
+            System.out.println(producto.getPrecio_venta());
+            System.out.println(producto.getCantidad());
+            System.out.println(producto.getEstado());
+            System.out.println(producto.getCategoria());
+            if (producto.getNombre() != null) {
+                productoToUpdate.setNombre(producto.getNombre());
+            }
+            if (producto.getPrecio_venta() != null) { 
+                productoToUpdate.setPrecio_venta(producto.getPrecio_venta());
+            }
+            if (producto.getCantidad() != 0) { 
+                productoToUpdate.setCantidad(producto.getCantidad());
+            }
+            if (producto.getEstado() != null) { 
+                productoToUpdate.setEstado(producto.getEstado());
+            }
+
+            if (producto.getCategoria() != null) {
+                productoToUpdate.setCategoria(producto.getCategoria());
+            }
+            if (producto.getCodigo_barras() != null) {
+                productoToUpdate.setCodigo_barras(producto.getCodigo_barras());
+            }
+
+            ProductoServiceI.update(id, productoToUpdate);
+            return Optional.of(productoToUpdate);
+        }
+        return Optional.empty();
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {

@@ -44,13 +44,44 @@ public class CompraController {
         return ResponseEntity.status(HttpStatus.CREATED).body(compraServiceI.save(Compra));
     }
 
+    // @PutMapping("/{id}")
+    // public ResponseEntity<?> Update(@RequestBody Compra Compra,@PathVariable Long id){
+    //     Optional<Compra> CompraOpt = compraServiceI.delete(id);
+    //     if (CompraOpt.isPresent()) {
+    //         return ResponseEntity.ok(CompraOpt.orElseThrow());  
+    //     }
+    //     return ResponseEntity.notFound().build();
+
+    // }
+    
     @PutMapping("/{id}")
-    public ResponseEntity<?> Update(@RequestBody Compra Compra,@PathVariable Long id){
-        Optional<Compra> CompraOpt = compraServiceI.delete(id);
+    public Optional<Compra> update(@PathVariable Long id,@RequestBody Compra compra){
+        Optional<Compra> CompraOpt = compraServiceI.findById(id);
         if (CompraOpt.isPresent()) {
-            return ResponseEntity.ok(CompraOpt.orElseThrow());  
+            Compra compraCopy = CompraOpt.get();
+            if (compra.getFecha() != null) {
+                compraCopy.setFecha(compra.getFecha());
+            }
+            if (compra.getMedio_pago() != null) {
+                compraCopy.setMedio_pago(compra.getMedio_pago());
+            }
+            if (compra.getComentario() != null) {
+                compraCopy.setComentario(compra.getComentario());
+            }
+            if (compra.getEstado() != null) {
+                compraCopy.setEstado(compra.getEstado());
+            }
+            if (compra.getCliente() != null) {
+                compraCopy.setCliente(compra.getCliente());
+            }
+
+
+            compraServiceI.update(id, compraCopy);
+            return Optional.of(compraCopy);
+            
         }
-        return ResponseEntity.notFound().build();
+        return Optional.empty();
+
 
     }
 

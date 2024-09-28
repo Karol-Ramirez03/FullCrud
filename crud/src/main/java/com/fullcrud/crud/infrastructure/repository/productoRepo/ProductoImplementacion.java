@@ -42,7 +42,7 @@ public class ProductoImplementacion implements ProductoServiceI{
             productoCopy.setPrecio_venta(producto.getPrecio_venta());
             productoCopy.setNombre(producto.getNombre());
 
-            return Optional.of(productoCopy);
+            return Optional.of(productoRepositoryI.save(producto));
         }
         return Optional.empty();
     }
