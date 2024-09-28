@@ -41,6 +41,7 @@ public class CategoriaImplementacion implements CategoriaServiceI {
         if (categoriaId.isPresent()) {
             Categoria categoriaCopy = categoriaId.orElseThrow();
             categoriaCopy.setNombre(categoria.getNombre());
+            categoriaCopy.setEstado(categoria.getEstado());
             return Optional.of(categoriaRepositoryI.save(categoriaCopy));
         }
         return Optional.empty();

@@ -44,14 +44,43 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.save(cliente));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> Update(@RequestBody Cliente cliente,@PathVariable Integer id){
-        Optional<Cliente> clienteOpt = clienteService.delete(id);
-        if (clienteOpt.isPresent()) {
-            return ResponseEntity.ok(clienteOpt.orElseThrow());  
-        }
-        return ResponseEntity.notFound().build();
+    // @PutMapping("/{id}")
+    // public ResponseEntity<?> Update(@RequestBody Cliente cliente,@PathVariable Integer id){
+    //     Optional<Cliente> clienteOpt = clienteService.update(id,cliente);
+    //     if (clienteOpt.isPresent()) {
+            
+    //         return ResponseEntity.status(HttpStatus.CREATED).body(clienteOpt.orElseThrow());  
+    //     }
+    //     return ResponseEntity.notFound().build();
 
+    // }
+
+    @PutMapping("/{id}")
+    public Optional<Cliente> update(@PathVariable int id,@RequestBody Cliente cliente) {
+        Optional<Cliente> clienteOptional = clienteService.findById(id);
+    
+        if (clienteOptional.isPresent()) {
+            Cliente clienteToUpdate = clienteOptional.get();
+    
+            if (cliente.getNombre() != null) {
+                clienteToUpdate.setNombre(cliente.getNombre());
+            }
+            if (cliente.getApellidos() != null) {
+                clienteToUpdate.setApellidos(cliente.getApellidos());
+            }
+            if (cliente.getCelular() != 0) {
+                clienteToUpdate.setCelular(cliente.getCelular());
+            }
+            if (cliente.getDireccion() != null) {
+                clienteToUpdate.setDireccion(cliente.getDireccion());
+            }
+            if (cliente.getCorreo() != null) {
+                clienteToUpdate.setCorreo(cliente.getCorreo());
+            }
+            clienteService.update(id, clienteToUpdate);
+            return Optional.of(clienteToUpdate);
+        }
+        return Optional.empty();
     }
 
     @DeleteMapping("/{id}")

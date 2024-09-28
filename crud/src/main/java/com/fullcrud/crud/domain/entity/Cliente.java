@@ -17,9 +17,17 @@ public class Cliente {
 
     @Column
     private String nombre;
+
+    @Column
     private String apellidos;
+    
+    @Column
     private int celular;
+
+    @Column
     private String direccion;
+    
+    @Column
     private String correo;
 
 

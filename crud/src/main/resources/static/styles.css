@@ -7,7 +7,7 @@
 .btn {
     border: none; 
     color: white; 
-    padding: 14px 28px; 
+    padding: 10px 20px; 
     cursor: pointer; 
     border-radius: 5px; 
     display: inline-block;
@@ -19,6 +19,10 @@ h1 {
     font-size: 100%;
     text-align: center;
 
+}
+
+tr,td{
+    align-items: center;
 }
 .primary {
     background-image: linear-gradient(to right, #a0248c, #4ab2e2);
@@ -50,6 +54,55 @@ h1 {
 
 
 }
+
+form {
+    background-color: #e24acb16;
+    border-radius: 10px;
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    height: auto;
+    gap: 30px;
+}
+input{
+    border-radius: 5px;
+    border: none;
+}
+.preguntas-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+    width: 100%;
+    height: 60%;
+ 
+}
+.divpre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10%;
+}
+table{
+    border: 2px solid black;
+    flex-wrap: wrap;
+}
+.listar-{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20%;
+    height: 80vh;
+    padding: 10%;
+    background-color: #e24acb16;
+    width: auto;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
 @media (max-width: 990px) {
     .container-buttons {
         width: 80%;
