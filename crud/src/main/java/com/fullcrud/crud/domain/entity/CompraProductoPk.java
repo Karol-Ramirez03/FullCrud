@@ -15,6 +15,14 @@ public class CompraProductoPk implements Serializable{
     private Long idProducto;
 
 
+    public CompraProductoPk() {
+    }
+
+    public CompraProductoPk(Long idCompra, Long idProducto) {
+        this.idCompra = idCompra;
+        this.idProducto = idProducto;
+    }
+
     public Long getIdCompra() {
         return idCompra;
     }
@@ -32,6 +40,6 @@ public class CompraProductoPk implements Serializable{
     }
 
 
-    
+
 
 }

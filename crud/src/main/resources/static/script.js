@@ -2,12 +2,14 @@ import { crudClientes } from "./clienteCrud.js";
 import { agregarEventos } from "./categoriaCrud.js";
 import { crudCompras } from "./CompraCrud.js";
 import { crudProductos } from "./productoCrud.js";
+import { crudCompraProducto } from "./CompraProductoCrud.js";
 
 const contendorPrincipal = document.querySelector(".container");
 const botonCategorias = document.querySelector(".categoria");
 const botonClientes = document.querySelector(".cliente");
 const botonCompra = document.querySelector(".compra");
-const botonProducto = document.querySelector(".producto")
+const botonProducto = document.querySelector(".producto");
+const botonCompraProducto = document.querySelector(".compra-producto");
 
 const opciones = () => {
     return /* html */ `
@@ -18,7 +20,6 @@ const opciones = () => {
                 <button class="btn primary eliminar">Eliminar</button>
                 <button class="btn primary actualizar">Actualizar</button>
                 <button class="btn primary listar">Listar</button>
-                <button class="btn primary listarid">Listar Por Id</button>
                 <button class="btn primary volver">Volver</button>
             </div>
         </div>
@@ -51,4 +52,10 @@ botonProducto.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones())
     crudProductos(contendorPrincipal)
+})
+
+botonCompraProducto.addEventListener("click", () => {
+    limpiarContenedor();
+    contendorPrincipal.insertAdjacentHTML("beforeend", opciones())  
+    crudCompraProducto(contendorPrincipal)
 })
