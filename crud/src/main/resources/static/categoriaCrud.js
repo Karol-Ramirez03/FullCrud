@@ -14,7 +14,10 @@ const formAgregarCategorias = () => {
                     <input type="text" class="form-control" name="estado" id="estado">
                 </div>
             </div>
-            <button class="btn primary botonGuardarConfirm">Enviar</button>
+            <div class="container-button">
+                <button class="btn primary botonGuardarConfirm">Enviar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -27,7 +30,10 @@ const formEliminarCategoria = () => {
                 <label for="formid" class="form-label">ID de la categoría a eliminar</label>
                 <input type="text" class="form-control" name="formid" id="formid">
             </div>
-            <button class="btn primary botondel">Eliminar</button>
+            <div class="container-button">
+                <button class="btn primary botondel">Eliminar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -103,6 +109,7 @@ const formListarCategorias = () => {
                 <span class="info-pagina"></span>
                 <button class="pagina-siguiente primary btn">Siguiente</button>
             </div>
+            <button class="volver primary btn">Volver al inicio</button>
         </div>
     `;
 }
@@ -115,19 +122,22 @@ const formActualizarCategoria = () => {
             <div class="preguntas-container">
                     <div class="divpre">
                         <label for="formid" class="form-label">ID de la categoría a actualizar</label>
-                        <input type="text" class="form-control" name="formid" id="formid" required>
+                        <input type="text" class="form-control" name="formid" id="formid">
                     </div>
                     <div class="divpre">
                         <label for="desc" class="form-label">Nueva descripción de la categoría</label>
-                        <input type="text" class="form-control" name="desc" id="desc" required>
+                        <input type="text" class="form-control" name="desc" id="desc">
                     </div>
                     <div class="divpre">
                         <label for="estadof" class="form-label">Nuevo estado de la categoría</label>
-                        <input type="text" class="form-control" name="estadof" id="estadof" required>
+                        <input type="text" class="form-control" name="estadof" id="estadof">
                     </div>
                     
             </div>
-            <button class="btn primary botonActualizarConfirm">Actualizar</button>
+            <div class="container-button">
+                <button class="btn primary botonActualizarConfirm">Actualizar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 };

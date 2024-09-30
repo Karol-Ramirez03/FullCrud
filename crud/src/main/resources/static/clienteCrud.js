@@ -80,6 +80,7 @@ const formListarclientes = () => {
                 <button class="pagina-siguiente primary btn">Siguiente</button>
             </div>
         </div>
+        <button class="volver primary btn">Volver al inicio</button>
     `;
 }
 
@@ -121,7 +122,10 @@ const formAgregarCliente = () =>{
                     <input type="text" class="form-control" name="correof" id="correof">
                 </div>
             </div>
-            <button class="btn primary botonGuardarConfirm">Enviar</button>
+            <div class="container-button">
+                <button class="btn primary botonGuardarConfirm">Enviar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     
     `
@@ -135,7 +139,10 @@ const formEliminarCliente = () => {
                 <label for="formid" class="form-label">ID del cliente a eliminar</label>
                 <input type="text" class="form-control" name="formid" id="formid">
             </div>
-            <button class="btn primary botondel">Eliminar</button>
+            <div class="container-button">
+                <button class="btn primary botondel">Eliminar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -146,7 +153,7 @@ const formActualizarCliente = () => {
             <h1>Actualizar Clientes</h1>
             <div class="preguntas-container">
                 <div class="divpre">
-                    <label for="idf" class="form-label">nombre del cliente</label>
+                    <label for="idf" class="form-label">id del cliente</label>
                     <input type="text" class="form-control" name="idf" id="idf">
                 </div>
                 <div class="divpre">
@@ -170,7 +177,10 @@ const formActualizarCliente = () => {
                     <input type="text" class="form-control" name="correof" id="correof">
                 </div>
             </div>
-            <button class="btn primary botonActualizarConfirm">Actualizar</button>
+            <div class="container-button">
+                <button class="btn primary botonActualizarConfirm">Actualizar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
 
     `
@@ -184,13 +194,14 @@ export const crudClientes = (contendorPrincipal) => {
     const botonActualizar = document.querySelector(".actualizar");
     const botonListarId = document.querySelector(".listarid");
 
-    botonAgregar.addEventListener("click", ()  => {
+    botonAgregar.addEventListener("click", (e)  => {
         limpiarContenedor();
         contendorPrincipal.insertAdjacentHTML("beforeend", formAgregarCliente())
         const form = document.querySelector(".form-Cliente");
         const botonconfirGuardar = document.querySelector(".botonGuardarConfirm");
 
         botonconfirGuardar.addEventListener("click", async (e) => {
+            e.preventDefault()
             const formulario = new FormData(form);
             const nuevoCliente = {
                 id: formulario.get("idf"),
@@ -261,6 +272,7 @@ export const crudClientes = (contendorPrincipal) => {
         const formActualizar = document.querySelector(".form-actualizar-cliente");
         const botonActualizarConfirm = document.querySelector(".botonActualizarConfirm");
         botonActualizarConfirm.addEventListener("click", async (e) => {
+            e.preventDefault()
             const formulario = new FormData(formActualizar);
             const idCliente = formulario.get("idf");
             const clienteActualizado = {};

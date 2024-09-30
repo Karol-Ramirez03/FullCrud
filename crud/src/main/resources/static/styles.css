@@ -33,6 +33,7 @@ tr,td{
 .container{
     background-color: #dcc1e4;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -76,8 +77,12 @@ input{
     align-items: center;
     gap: 10%;
     width: 100%;
-    height: 60%;
+    height: auto;
  
+}
+.container-button{
+    display: flex;
+
 }
 .divpre{
     display: flex;

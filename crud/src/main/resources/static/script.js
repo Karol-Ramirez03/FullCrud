@@ -30,32 +30,45 @@ export const limpiarContenedor = () => {
     contendorPrincipal.innerHTML = "";
 };
 
+const agregarEventosVolver = () => {
+    const botonVolver = document.querySelector(".volver");  
+    botonVolver.addEventListener("click", (e) => {
+        location.reload(true);
+    });
+
+};
+
 botonCategorias.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones());
     agregarEventos(contendorPrincipal);
+    agregarEventosVolver();
 });
 
 botonClientes.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones());
     crudClientes(contendorPrincipal);
+    agregarEventosVolver();
 });
 
 botonCompra.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones());
     crudCompras(contendorPrincipal);
+    agregarEventosVolver();
 });
 
 botonProducto.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones())
     crudProductos(contendorPrincipal)
+    agregarEventosVolver();
 })
 
 botonCompraProducto.addEventListener("click", () => {
     limpiarContenedor();
     contendorPrincipal.insertAdjacentHTML("beforeend", opciones())  
     crudCompraProducto(contendorPrincipal)
+    agregarEventosVolver();
 })

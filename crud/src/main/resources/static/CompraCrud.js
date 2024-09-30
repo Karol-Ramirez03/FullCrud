@@ -79,6 +79,7 @@ const formListarCompras = () => {
                 <button class="pagina-siguiente primary btn">Siguiente</button>
             </div>
         </div>
+        <button class="volver primary btn">Volver al inicio</button>
     `;
 }
 
@@ -89,11 +90,11 @@ const formAgregarCompra = () => {
             <div class="preguntas-container">
                 <div class="divpre">
                     <label for="fecha" class="form-label">Fecha</label>
-                    <input type="datetime-local" class="form-control" name="fecha" id="fecha" required>
+                    <input type="datetime-local" class="form-control" name="fecha" id="fecha">
                 </div>
                 <div class="divpre">
                     <label for="medio_pago" class="form-label">Medio de Pago</label>
-                    <input type="text" class="form-control" name="medio_pago" id="medio_pago" required>
+                    <input type="text" class="form-control" name="medio_pago" id="medio_pago">
                 </div>
                 <div class="divpre">
                     <label for="comentario" class="form-label">Comentario</label>
@@ -101,14 +102,17 @@ const formAgregarCompra = () => {
                 </div>
                 <div class="divpre">
                     <label for="estado" class="form-label">Estado</label>
-                    <input type="text" class="form-control" name="estado" id="estado" required>
+                    <input type="text" class="form-control" name="estado" id="estado">
                 </div>
                 <div class="divpre">
                     <label for="cliente_id" class="form-label">ID del Cliente</label>
-                    <input type="text" class="form-control" name="cliente_id" id="cliente_id" required>
+                    <input type="text" class="form-control" name="cliente_id" id="cliente_id">
                 </div>
             </div>
-            <button class="btn primary botonGuardarConfirm">Enviar</button>
+            <div class="container-button">
+                <button class="btn primary botonGuardarConfirm">Enviar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -119,9 +123,12 @@ const formEliminarCompra = () => {
             <h1>Eliminar Compra</h1>
             <div class="divpre">
                 <label for="formid" class="form-label">ID de la compra a eliminar</label>
-                <input type="text" class="form-control" name="formid" id="formid" required>
+                <input type="text" class="form-control" name="formid" id="formid" >
             </div>
-            <button class="btn primary botondel">Eliminar</button>
+            <div class="container-button">
+                <button class="btn primary botondel">Eliminar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -133,7 +140,7 @@ const formActualizarCompra = () => {
             <div class="preguntas-container">
                 <div class="divpre">
                     <label for="idf" class="form-label">ID de la compra</label>
-                    <input type="text" class="form-control" name="idf" id="idf" required>
+                    <input type="text" class="form-control" name="idf" id="idf" >
                 </div>
                 <div class="divpre">
                     <label for="fecha" class="form-label">Nueva Fecha</label>
@@ -156,7 +163,10 @@ const formActualizarCompra = () => {
                     <input type="text" class="form-control" name="cliente_id" id="cliente_id">
                 </div>
             </div>
-            <button class="btn primary botonActualizarConfirm">Actualizar</button>
+            <div class="container-button">
+                <button class="btn primary botonActualizarConfirm">Actualizar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -248,6 +258,7 @@ export const crudCompras = (contendorPrincipal) => {
         const botonActualizarConfirm = document.querySelector(".botonActualizarConfirm");
     
         botonActualizarConfirm.addEventListener("click", async (e) => {
+            e.preventDefault()
             const formulario = new FormData(formActualizar);
             const idCompra = formulario.get("idf");
             const compraActualizada = {};

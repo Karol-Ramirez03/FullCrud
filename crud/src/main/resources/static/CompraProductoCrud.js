@@ -61,33 +61,36 @@ const formAgregarCompraProducto = () => {
             <div class="preguntas-container">
                 <div class="divpre">
                     <label for="cantidad" class="form-label">cantidad</label>
-                    <input type="number" class="form-control" name="cantidad" id="cantidad" required>
+                    <input type="number" class="form-control" name="cantidad" id="cantidad">
                 </div>
                 <div class="divpre">
                     <label for="total" class="form-label">Total</label>
-                    <input type="number" class="form-control" name="total" id="total" required>
+                    <input type="number" class="form-control" name="total" id="total">
                 </div>
                 <div class="divpre">
                     <label for="estado" class="form-label">estado</label>
-                    <input type="text" class="form-control" name="estado" id="estado" required>
+                    <input type="text" class="form-control" name="estado" id="estado">
                 </div>
                 <div class="divpre">
                     <label for="idcompra" class="form-label">id compra</label>
-                    <input type="number" class="form-control" name="idcompra" id="idcompra" required>
+                    <input type="number" class="form-control" name="idcompra" id="idcompra">
                 </div>
                 <div class="divpre">
                     <label for="idproducto" class="form-label">id producto</label>
-                    <input type="number" class="form-control" name="idproducto" id="idproducto" required>
+                    <input type="number" class="form-control" name="idproducto" id="idproducto">
                 </div>
             </div>
-            <button class="btn primary botonGuardarConfirm">Enviar</button>
+            <div class="container-button">
+                <button class="btn primary botonGuardarConfirm">Enviar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
 const formListarProductos = () => {
     return /* html */ `
         <div class="listar-">
-            <h2>Lista de Productos</h2>
+            <h2>Lista de compra Productos</h2>
             <table class="table">
                 <thead>
                     <tr>
@@ -106,6 +109,7 @@ const formListarProductos = () => {
                 <button class="pagina-siguiente-producto primary btn">Siguiente</button>
             </div>
         </div>
+        <button class="volver primary btn">Volver al inicio</button>
     `;
 }
 
@@ -116,14 +120,17 @@ const formEliminarCompraProducto = () => {
             <div class="preguntas-container">
                 <div class="divpre">
                     <label for="idcompra" class="form-label">id compra</label>
-                    <input type="number" class="form-control" name="idcompra" id="idcompra" required>
+                    <input type="number" class="form-control" name="idcompra" id="idcompra">
                 </div>
                 <div class="divpre">
                     <label for="idproducto" class="form-label">id producto</label>
-                    <input type="number" class="form-control" name="idproducto" id="idproducto" required>
+                    <input type="number" class="form-control" name="idproducto" id="idproducto">
                 </div>
             </div>
-            <button class="btn primary botondel">Enviar</button>
+            <div class="container-button">
+                <button class="btn primary botondel">Enviar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 }
@@ -134,26 +141,29 @@ const formActualizarCompraProducto = () => {
             <div class="preguntas-container">
                 <div class="divpre">
                     <label for="idcompra" class="form-label">ID Compra</label>
-                    <input type="number" class="form-control" name="idcompra" id="idcompra" required>
+                    <input type="number" class="form-control" name="idcompra" id="idcompra">
                 </div>
                 <div class="divpre">
                     <label for="idproducto" class="form-label">ID Producto</label>
-                    <input type="number" class="form-control" name="idproducto" id="idproducto" required>
+                    <input type="number" class="form-control" name="idproducto" id="idproducto">
                 </div>
                 <div class="divpre">
                     <label for="cantidadf" class="form-label">Cantidad</label>
-                    <input type="number" class="form-control" name="cantidadf" id="cantidadf" required>
+                    <input type="number" class="form-control" name="cantidadf" id="cantidadf">
                 </div>
                 <div class="divpre">
                     <label for="totalf" class="form-label">Total</label>
-                    <input type="number" class="form-control" name="totalf" id="totalf" required>
+                    <input type="number" class="form-control" name="totalf" id="totalf">
                 </div>
                 <div class="divpre">
                     <label for="estadof" class="form-label">Estado</label>
-                    <input type="text" class="form-control" name="estadof" id="estadof" required>
+                    <input type="text" class="form-control" name="estadof" id="estadof">
                 </div>
             </div>
-            <button class="btn primary botonActualizarConfirm">Actualizar</button>
+            <div class="container-button">
+                <button class="btn primary botonActualizarConfirm">Actualizar</button>
+                <button class="volver primary btn">Volver al inicio</button>
+            </div>
         </form>
     `;
 };
